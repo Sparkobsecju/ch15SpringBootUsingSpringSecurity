@@ -15,16 +15,32 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authorizeRequest -> authorizeRequest
+        http.authorizeHttpRequests(authorizeRequests -> authorizeRequests
+                .requestMatchers("/", "/home", "login").permitAll() // Allow access to these path without authentication
                 .anyRequest().authenticated()) // Require authentication for any request
             .formLogin(form -> form
-                .loginPage("/login.html") // Custom login page
+                .loginPage("/login") // Custom login page
+                .defaultSuccessUrl("/home", true) // Redirect to /home upon successful login
                 .permitAll()) // Allow everyone to access the login page
+            .logout(logout -> logout
+                    .logoutSuccessUrl("/login")) // Redirect to /login upon successful logout
             .csrf(csrf -> csrf.disable()); // Disable CSRF protection for this example
-        return http.build(); // Build the SecurityFilterChain
+        return http.build(); // Build and return the SecurityFilterChain
     }
     /**
      * This refactoring aligns with the latest Spring Security practices,
      * ensuring compatibility with Spring Security 5.4 and later versions.
      */
+
+
+    /*protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/", "/home", "/login").permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login").defaultSuccessUrl("/home")
+                .and()
+            .logout();
+    }*/
 }

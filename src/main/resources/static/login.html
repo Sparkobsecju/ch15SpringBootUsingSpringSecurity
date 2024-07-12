@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登入頁面</title>
+    <style>
+        .login {
+            margin: 5em auto 0;
+            width: 44%;
+        }
+
+        .login input{
+            padding: 15px;
+            width: 94%;
+            font-size: 1.1em;
+            color: gray;
+            float: left;
+            cursor: pointer;
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            outline: none;
+            font-weight: 600;
+            margin: 18px 0px 18px 3px;
+            background: #eee;
+            transition: all 0.3s ease-out;
+            border: solid 1px #ccc;
+        }
+
+        .login input:hover{
+            color: rgb(180, 86, 9);
+            border-left: solid 6px #40A46F;
+        }
+
+        .login {
+            padding: 5px 4px;
+            text-align: center;
+        }
+        input[type="submit"] {
+            padding: 17px 17px;
+            color: #fff;
+            float: right;
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #40a46f;
+            border: solid 1px #40a46f;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.5s ease-out;
+            outline: none;
+            width: 100%;
+        }
+
+        .submit input[type="submit"]:hover {
+            background: #07793d;
+            border: solid 1px #07793d;
+        }
+    </style>
+</head>
+<body>
+<div class="login">
+    <form action="login.html" method="post">
+        <div>
+            <input
+                name="username"
+                placeholder="請輸入使用者名稱"
+                type="text"
+                />
+            <input
+                name="password"
+                placeholder="請輸入密碼"
+                type="password"
+                />
+        </div>
+        <div class="submit">
+            <input type="submit" value="登入" />
+        </div>
+    </form>
+</div>
+</body>
+</html>

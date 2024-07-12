@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>登入頁面</title>
@@ -56,7 +56,8 @@
 </head>
 <body>
 <div class="login">
-    <form action="login.html" method="post">
+    <div class="error" th:if="${param.error}">使用者名稱或密碼錯誤</div>
+    <form action="@{/login}" method="post">
         <div>
             <input
                 name="username"
